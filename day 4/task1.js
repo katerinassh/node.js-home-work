@@ -9,7 +9,7 @@ function push(array, ...newElements) {
         if (index == array.length - 1) {
             newElements.forEach((elem, i) =>  array[index + i + 1] = elem);
         }
-    });;
+    });
     return array.length;
 }
 
@@ -19,14 +19,15 @@ function shift(array) {
 }
 
 function unshift(array, ...newElements) {
-    newElements.forEach((elem, index) => {
+    newElements.reverse().forEach((elem, index) => {
         if (index == newElements.length - 1) {
             array.forEach((elem, i) =>  newElements[index + i + 1] = elem);
         }
-    });;
+    });ß
     return newElements.length;
 }
 
 function concat(...array) {
     return array.reduce((acc, next) => `${acc},${next}`).split(',');
 }
+
