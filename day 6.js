@@ -7,4 +7,4 @@ function ipsBetween(ip1, ip2) {
     return ip2 - ip1;
 }
 
-// console.log(ipsBetween("20.0.0.10", "20.0.1.0"));
+console.log(ipsBetween("20.0.0.10", "20.0.1.0"));
