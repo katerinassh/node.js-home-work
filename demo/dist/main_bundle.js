@@ -1,0 +1,1 @@
+(()=>{"use strict";console.log(function(e,t,n){if(!Number.isInteger(1.5)||!Number.isInteger(3))return"{status: 'failed', reason: 'At least one of your parametrs is not an integer. You must input only int numbers!' ";let r="";for(let e=0;e<1.5;e++){for(let t=0;t<3;t++)r+=e%2==1?" *":"* ";r+="\n"}return r}())})();
