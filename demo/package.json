@@ -12,5 +12,8 @@
   "devDependencies": {
     "webpack": "^5.28.0",
     "webpack-cli": "^4.5.0"
+  },
+  "dependencies": {
+    "nerdamer": "^1.1.10"
   }
 }

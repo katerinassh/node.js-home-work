@@ -1,0 +1,63 @@
+body {
+    margin: 50px 0 0 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+      "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #eaf5fc;
+  }
+
+.all-tasks {
+margin: 0 auto;
+max-width: 800px;
+}
+
+.condition p {
+    line-height: 26px;
+}
+
+.task-1, .task-2, .task-3, .task-4, .task-5, .task-6, .task-7 {
+    background-color: #ffffff;
+    padding: 20px;
+    margin-bottom: 35px;
+}
+.task-1 img {
+    height: 120px;
+}
+
+.input-container {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    width: 85%;
+}
+.input-container input {
+    width: 25%;
+    outline: none;
+    padding: 5px;
+}
+
+.output-container textarea {
+    resize: none;
+    border: none;
+    width: 85%;
+    padding: 20px 0px 0px;
+    height: 100px;
+    outline: none;
+    background-color: transparent;
+}
+
+.task-2 .input-container input {
+    width: 40%;
+}
+.task-2 .output-container textarea {
+    height: 60px;
+}
+
+.task-3 .input-container textarea {
+    width: 670px;
+    height: 100px;
+    outline: none;
+}

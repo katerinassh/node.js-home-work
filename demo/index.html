@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Demo 1</title>
+</head>
+<body>
+    <div class="all-tasks">
+        <div class="main-header">
+            <h1>JS Elementary Tasks</h1>
+        </div>
+        <div class="task-1">
+            <div class="header">
+                <h2> Задание 1. Шахматная доска</h2>
+                <div class="condition">
+                    <p>Вывести шахматную доску с заданными размерами высоты и ширины, по принципу:</p>
+                    <img src="./img/temp.png">
+                    <p><i>Входные параметры:</i> длина, ширина, символ для отображения.</p>
+                    <p><i>Выход:</i> строка с представлением шахматной доски</p>
+                </div>
+            </div>
+            <div class="form">
+                <div class="input-container">
+                    <input type="text" id="length" placeholder="Длина">
+                    <input type="text" id="width" placeholder="Ширина">
+                    <input type="text" id="symbol" placeholder="Символ">
+                </div>
+                <div class="output-container">
+                    <textarea readonly>Input all required parameters to get result</textarea>
+                </div>
+            </div>
+        </div>
+        <div class="task-2">
+            <div class="header">
+                <h2>Задание 2. Анализ конвертов</h2>
+                <div class="condition">
+                    <p>Есть два конверта со сторонами (a,b) и (c,d). Требуется определить, можно ли один конверт вложить в другой. Программа должна обрабатывать ввод чисел с плавающей точкой. </p>
+                    <p><i>Входные параметры:</i> объекты конверт1 и конверт2 </p>
+                    <p><i>Выход:</i> номер конверта, если вложение возможно, 0 – если вложение невозможно.</p>
+                </div>
+            </div>
+            <div class="form">
+                <div class="input-container">
+                    <input type="text" id="first-envelop" placeholder="Первый конверт {a: , b:}">
+                    <input type="text" id="second-envelop" placeholder="Второй конверт {c: , d:}">
+                </div>
+                <div class="output-container">
+                    <textarea readonly>Input all required parameters to get result</textarea>
+                </div>
+            </div>
+        </div>
+        <div class="task-3">
+            <div class="header">
+                <h2> Задание 3. Сортировка треугольников</h2>
+                <div class="condition">
+                    <p>Вывести треугольники в порядке убывания их площади.</p>
+                    <p><i>Входные параметры:</i> массив объектов треугольник</p>
+                    <p><i>Выход:</i> упорядоченный массив имён треугольников</p>
+                </div>
+            </div>
+            <div class="form">
+                <div class="input-container">
+                    <textarea>{"vertices": "ABC", "a": 10, "b": 20, "c": 22.36}, {"vertices": "ABF", "a": 20, "b": 20, "f": 22.36}</textarea>
+                </div>
+                <div class="output-container">
+                    <textarea readonly>Input all required parameters to get result</textarea>
+                </div>
+            </div>
+        </div>
+        <div class="task-4">
+            <div class="header">
+                <h2> Задание 4. Палиндром</h2>
+                <div class="condition">
+                    <p>Проверить является ли число или его часть палиндромом. Например, число 1234437 не является палиндромом, но является палиндромом его часть 3443. Числа меньшие, чем 10 палиндромом не считать.</p>
+                    <p><i>Входные параметры:</i> число</p>
+                    <p><i>Выход:</i>  извлеченный из числа палиндром либо 0, если извлечение не удалось.</p>
+                </div>
+            </div>
+            <div class="form">
+                <div class="input-container">
+                    <input type="text" id="numberPalindrom" placeholder="Число">
+                </div>
+                <div class="output-container">
+                    <textarea readonly>Input all required parameters to get result</textarea>
+                </div>
+            </div>
+        </div>
+        <div class="task-5">
+            <div class="header">
+                <h2> Задание 5. Счастливые билеты</h2>
+                <div class="condition">
+                    <p>Есть 2 способа подсчёта счастливых билетов:</p>
+                    <p>1. Простой — если на билете напечатано шестизначное число, и сумма первых трёх цифр равна сумме последних трёх, то этот билет считается счастливым.</p>
+                    <p>2. Сложный — если сумма чётных цифр билета равна сумме нечётных цифр билета, то билет считается счастливым.</p>
+                    <p>Определить программно какой вариант подсчёта счастливых билетов даст их большее количество на заданном интервале.</p>
+                    <p><i>Входные параметры:</i> объект context с полями min и max</p>
+                    <p><i>Выход:</i> объект с информацией о победившем методе и количестве счастливых билетов для каждого способа подсчёта.</p>
+                </div>
+            </div>
+            <div class="form">
+                <div class="input-container">
+                    <input type="text" id="minTicket" placeholder="Первый билет">
+                    <input type="text" id="maxTicket" placeholder="Последний билет">
+                </div>
+                <div class="output-container">
+                    <textarea readonly>Input all required parameters to get result</textarea>
+                </div>
+            </div>
+        </div>
+        <div class="task-6">
+            <div class="header">
+                <h2> Задание 6. Числовая последовательность</h2>
+                <div class="condition">
+                    <p>Вывести через запятую ряд длиной n, состоящий из натуральных чисел, квадрат которых не меньше заданного m.</p>
+                    <p><i>Входные параметры:</i> длина и значение минимального квадрата(ЗМК)</p>
+                    <p><i>Выход:</i> строка с рядом чисел</p>
+                </div>
+            </div>
+            <div class="form">
+                <div class="input-container">
+                    <input type="text" id="lengthN" placeholder="Длина">
+                    <input type="text" id="zmk" placeholder="Минимальный квадрат">
+                </div>
+                <div class="output-container">
+                    <textarea readonly>Input all required parameters to get result</textarea>
+                </div>
+            </div>
+        </div>
+        <div class="task-7">
+            <div class="header">
+                <h2> Задание 7. Ряд Фибоначчи для диапазона</h2>
+                <div class="condition">
+                    <p>Вывести все числа Фибоначчи, которые удовлетворяют переданному в функцию ограничению: находятся в указанном диапазоне, либо имеют указанную длину.</p>
+                    <p><i>Входные параметры:</i> объект context с полями min и max, либо с полем length </p>
+                    <p><i>Выход:</i> массив чисел</p>
+                </div>
+            </div>
+            <div class="form">
+                <div class="input-container">
+                    <input type="text" id="min" placeholder="Минимальное">
+                    <input type="text" id="max" placeholder="Максимальное">
+                    <input type="text" id="lengthFib" placeholder="Длина">
+                </div>
+                <div class="output-container">
+                    <textarea readonly>Input all required parameters to get result</textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+<script src='./dist/main_bundle.js'></script>
+</body>
+</html>
