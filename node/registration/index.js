@@ -6,10 +6,11 @@ http.createServer((req, res) => {
     const query = url.parse(req.url, true).query;
     const { type } = query;
 
+    // регистрация
     if (type === 'reg') {
         const { name, surname, login, password, email, dob } = query;
 
-        const data = {
+        const user = {
             name,
             surname,
             login,
@@ -18,30 +19,51 @@ http.createServer((req, res) => {
             dob
         };
 
-        fs.appendFile('./users.json', parce(data), error => {
-            if (error) {
-                res.writeHead(400, {'Content-Type' : 'text/plain'});
-                res.write('Problem with registration. Try later');
-                res.end();
-            } else {
-                res.writeHead(200, {'Content-Type' : 'text/plain'});
-                res.write('Account created succesfully!');
-                res.end();
-            }
-        });
+        try {
+            // считывание содержимых данных
+            const users = JSON.parse(fs.readFileSync('./users.json'));
+            users.push(user);
+            console.log(users);
+            
+            // запись поновой
+            fs.writeFileSync('./users.json', JSON.stringify(users));
+
+            res.writeHead(200, {'Content-Type':'text/plain'});
+            res.write('Your account have been created succesfully');
+            res.end();
+        } catch (error) {
+            console.log(error);
+            res.writeHead(400, {'Content-Type':'text/plain'});
+            res.write('Some errors happened.Try later');
+            res.end();
+        }
+
     }
 
+    // авторизация
     if (type === 'auth') {
         const { login, password } = query;
 
-        let responses;
+        let users;
         fs.readFile('./users.json', (error, data) => {
-            responses = JSON.parse(data).split(';');
+            users = JSON.parse(data);
+            console.log(users);
 
-            console.log(responses);
+            for (let i = 0; i < users.length; i++) {
+                if (users[i].login === login && users[i].password === password) {
+                    res.writeHead(200, {'Content-Type':'text/plain'});
+                    res.write(user);
+                    res.end();
+
+                    break;
+                } else {
+                    res.writeHead(418, {'Content-Type':'text/plain'});
+                    res.write('There are not such data. You should registrate first.');
+                    res.end();
+                }
+            }
         })
     }
 }).listen(8080);
 
-const parce = data => `${ JSON.stringify(data)};`;
 

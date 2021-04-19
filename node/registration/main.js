@@ -48,10 +48,11 @@ const validation = (name, surname, login, password, email, dob) => {
         data.password.style.cssText = 'border: 1px solid red';
         valid = false;
     }
+    if (typeof email !== 'string' && /\A[^@]+@([^@\.]+\.)+[^@\.]+\z/.test(email)) {
+        data.email.style.cssText = 'border: 1px solid red';
+        valid = false;
+    }
 
     return valid;
 };
 
-// const changeBorder = (elem) => {
-
-// }
