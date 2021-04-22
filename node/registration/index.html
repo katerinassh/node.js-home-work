@@ -4,32 +4,49 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Registration</title>
+    <link rel="stylesheet" href="./style/style.css">
 </head>
 <body>
-    <h3>Registration</h3>
-    <form action="#" class="form-registration">
-        <div>
-            <input type="text" class="inp-name" placeholder="name" >
+    <div class="wrapper">
+        <div class="div-registration">
+            <h3>Registration</h3>
+        <form action="#" class="form-registration">
+            <div>
+                <input type="text" class="inp-name" placeholder="name" >
+            </div>
+            <div>
+                <input type="text" class="inp-surname" placeholder="surname">
+            </div>
+            <div>
+                <input type="text" class="inp-login" placeholder="login">
+            </div>
+            <div>
+                <input type="password" class="inp-pwd" placeholder="password">
+            </div>
+            <div>
+                <input type="text" class="inp-mail" placeholder="email">
+            </div>
+            <div>
+                <input type="date" class="inp-date" placeholder="date of borth">
+            </div>
+            <input type="submit" value="Registrate" class="button">
+        </form>
         </div>
-        <div>
-            <input type="text" class="inp-surname" placeholder="surname">
+        <hr>
+        <div class="div-autorization">
+            <h3>Autorization</h3>
+        <form action="#" class="form-autorization">
+            <div>
+                <input type="text" class="inp-login" placeholder="login">
+            </div>
+            <div>
+                <input type="password" class="inp-pwd" placeholder="password">
+            </div>
+            <input type="submit" value="Log in" class="button">
+        </form>
         </div>
-        <div>
-            <input type="text" class="inp-login" placeholder="login">
-        </div>
-        <div>
-            <input type="password" class="inp-pwd" placeholder="password">
-        </div>
-        <div>
-            <input type="text" class="inp-mail" placeholder="email">
-        </div>
-        <div>
-            <input type="date" class="inp-date" placeholder="date of borth">
-        </div>
-        <input type="submit" value="Registrate">
-    </form>
-
+    </div>
     <script src="./main.js" type="module"></script>
 </body>
 </html>

@@ -1,3 +1,5 @@
+// const { validation } = require('./src/validation.js');
+
 const data = {
     name: document.querySelector('.inp-name'),
     surname: document.querySelector('.inp-surname'),
@@ -44,15 +46,14 @@ const validation = (name, surname, login, password, email, dob) => {
         data.login.style.cssText = 'border: 1px solid red';
         valid = false;
     }
-    if (typeof password !== 'string' || password.length < 6 || password.length > 50) {
+    if (typeof password !== 'string' || password.length < 6 || password.length > 50 || /^.*(?=.{6,50})(?=.*d)(?=.*[A-Z])(?=.[a-z])/.test(password)) {
         data.password.style.cssText = 'border: 1px solid red';
         valid = false;
     }
-    if (typeof email !== 'string' && /\A[^@]+@([^@\.]+\.)+[^@\.]+\z/.test(email)) {
+    if (typeof email !== 'string' || /\A[^@]+@([^@\.]+\.)+[^@\.]+\z/.test(email)) {
         data.email.style.cssText = 'border: 1px solid red';
         valid = false;
     }
-
+    
     return valid;
 };
-
