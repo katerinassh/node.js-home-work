@@ -24,7 +24,7 @@ const addUser = async(user) => {
     const { name, surname, login, password, email, dob, current_date } = user;
 
     try {
-        await client.query(`INSERT INTO userstime(name, surname, login, password, email) VALUES ('${name}', '${surname}', '${login}', '${password}', '${email}')`);
+        await client.query(`INSERT INTO users(name, surname, login, password, email) VALUES ('${name}', '${surname}', '${login}', '${password}', '${email}')`);
         return [200, 'New user has been registrated'];
     } catch (err) {
         console.log(err.stack);

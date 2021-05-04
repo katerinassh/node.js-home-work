@@ -1,0 +1,23 @@
+{
+  "dependencies": {
+    "expres": "^0.0.5",
+    "express": "^4.17.1",
+    "nodemailer": "^6.5.0",
+    "pg": "^8.6.0",
+    "pg-client": "^0.0.5"
+  },
+  "name": "demo_2",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index",
+    "dev": "nodemon index"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
