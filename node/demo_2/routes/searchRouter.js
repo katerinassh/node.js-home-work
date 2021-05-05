@@ -4,7 +4,7 @@ const productController = require('../controllers/productController.js');
 
 const searchRouter = Router();
 
-searchRouter.use('/', (req, res) => {
+searchRouter.get('/', (req, res) => {
     const { categories, products, manufactures } = req.query;
 
     if (categories && !products && !manufactures) {

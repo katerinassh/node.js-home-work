@@ -46,7 +46,7 @@ class SearchModel {
         JOIN manufactures ON manufactures.id = products.manufacture_id 
         JOIN categories ON categories.id = products.category_id
         JOIN units ON units.id = products.units_id
-        WHERE products.name ~ '${products}' OR manufactures.manufacture_name ~ '${manufactures}'`);
+        WHERE products.name ~ '${products}' AND manufactures.manufacture_name ~ '${manufactures}'`);
         rows = rows.map(row => JSON.stringify(row));
 
         return rows;
@@ -92,7 +92,7 @@ class SearchModel {
                 FROM products 
                 JOIN manufactures ON manufactures.id = products.manufacture_id 
                 JOIN categories ON categories.id = products.category_id
-                WHERE categories.id = ${categories[i]} AND (products.name ~ '${products}' OR manufactures.manufacture_name ~ '${manufactures}')`);
+                WHERE categories.id = ${categories[i]} AND (products.name ~ '${products}' AND manufactures.manufacture_name ~ '${manufactures}')`);
             rows = rows.map(row => JSON.stringify(row));
             data.push(...rows);
         };
