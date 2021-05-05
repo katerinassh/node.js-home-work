@@ -2,17 +2,8 @@ const client = require('./db.js');
 
 class OrderModel {
     parseUrl(path) {
-        const params = path.replace(/%7B/g,'{').replace(/%7D/g, '}').match(/\[(.*?)\]/g);
-        let [products, user] = params;
+        let products = path.match(/\[(.*?)\]/g);
         
-        user = user.replace(/[{()}]/g, '').replace(/[\[\]']+/g, '').split(',');
-        products = products.replace(/[\[\]']+/g, '').split('},{');
-        user = {
-            name: user[0].split(':')[1],
-            phone: user[1].split(':')[1],
-            email: user[2].split(':')[1],
-        };
-
         const array = [];
         products = products.map(el => {
             el = el.split(',');
@@ -24,20 +15,13 @@ class OrderModel {
             array.push(obj);
         });
 
-        return [array, user];
+        return array;
     }
 
-    validateData(user) {
-        if (!user.phone || user.phone.length !== 12 || user.name.length < 1) return {status: 'error', data : [ ], message: 'user info is not valid'};
-        
-        return {status: 'ok', data: [], message:'All data is valid'};
-    }
-
-    async findUser(user) {
-        const { phone } = user;
-
-        const { rows } = await client.query(`SELECT * FROM users WHERE phone = '${phone}'`);
-        return (rows.length !== 0 ? true : false);
+    async findUser (user) {
+        const { user_phone, user_password } = user;
+        const { rows } = await client.query(`SELECT * FROM users WHERE phone = '${user_phone}' AND password = '${user_password}'`);
+        return rows;
     }
 
     async findProduct(products) {
@@ -61,26 +45,16 @@ class OrderModel {
         return {status: 'ok', data: [], message:'All products have enough amount'};
     }
 
-    async addUser (user) {
-        let { name, phone, email } = user;
+    async addOrderedItems (products, userId) {
+        await client.query(`INSERT INTO orders(user_id) VALUES (${userId})`);
+        const orders = await client.query(`SELECT * FROM orders WHERE user_id = ${userId}`);
+        const orderId = orders.rows[orders.rows.length - 1].id;
 
-        const isFound = await this.findUser(user);
-        if (!isFound) {
-            await client.query(`INSERT INTO users(name, phone, email) VALUES('${name}', '${phone}', '${email}')`);
-        }
-        
-        const { rows } = await client.query(`SELECT * FROM users WHERE phone = '${phone}'`);
-        await client.query(`INSERT INTO orders(user_id) VALUES (${rows[0].id})`);
-
-        const orders = await client.query(`SELECT * FROM orders WHERE user_id = ${rows[0].id}`);
-        
-        return orders.rows[orders.rows.length - 1].id;
-    }
-
-    async addOrderedItems (products, orderId) {
         for (let i = 0; i < products.length; i++) {
             await client.query(`INSERT INTO orderItems(order_id, product_id, amount) VALUES(${orderId}, ${products[i].id}, ${products[i].count})`);
         }
+
+        return orderId;
     }
 }
 
